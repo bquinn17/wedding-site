@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Script to extract inline JavaScript and CSS from HTML file into separate files.
-Processes all top-level <script> and <style> tags without src/href attributes.
+Processes all <script> and <style> tags throughout the document without src/href attributes.
 """
 
 import os
@@ -27,34 +27,19 @@ def extract_inline_scripts(html_file, js_output_dir='assets/js/lib', css_output_
     print("Parsing HTML...")
     soup = BeautifulSoup(html_content, 'html.parser')
 
-    # Find all script tags at the top level (direct children of body/head)
-    # You can adjust this to get all scripts by using: soup.find_all('script')
-    top_level_scripts = []
-
-    # Get scripts from head
-    if soup.head:
-        top_level_scripts.extend(soup.head.find_all('script', recursive=False))
-
-    # Get scripts from body
-    if soup.body:
-        top_level_scripts.extend(soup.body.find_all('script', recursive=False))
-
-    print(f"Found {len(top_level_scripts)} top-level script tags")
+    # Find all script tags throughout the document
+    all_scripts = soup.find_all('script')
+    print(f"Found {len(all_scripts)} script tags")
 
     # Filter for inline scripts (no src attribute)
-    inline_scripts = [script for script in top_level_scripts
+    inline_scripts = [script for script in all_scripts
                      if not script.get('src')]
 
     print(f"Found {len(inline_scripts)} inline script tags (without src attribute)")
 
-    # Find all style tags at the top level
-    top_level_styles = []
-    if soup.head:
-        top_level_styles.extend(soup.head.find_all('style', recursive=False))
-    if soup.body:
-        top_level_styles.extend(soup.body.find_all('style', recursive=False))
-
-    print(f"Found {len(top_level_styles)} top-level style tags")
+    # Find all style tags throughout the document
+    all_styles = soup.find_all('style')
+    print(f"Found {len(all_styles)} style tags")
 
     all_extracted_files = []
     html_modified = False
@@ -107,7 +92,7 @@ def extract_inline_scripts(html_file, js_output_dir='assets/js/lib', css_output_
             i += 1
 
     # Process inline styles
-    if top_level_styles:
+    if all_styles:
         # Create output directory
         css_output_path = Path(css_output_dir)
         css_output_path.mkdir(parents=True, exist_ok=True)
@@ -116,7 +101,7 @@ def extract_inline_scripts(html_file, js_output_dir='assets/js/lib', css_output_
         # Extract each inline style
         print("\nProcessing inline styles...")
         i = 1
-        for style in top_level_styles:
+        for style in all_styles:
             # Get all text content from the style tag
             style_content = style.get_text()
 
