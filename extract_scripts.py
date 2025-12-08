@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Script to extract inline JavaScript from HTML file into separate files.
-Processes all top-level <script> tags without src attributes.
+Script to extract inline JavaScript and CSS from HTML file into separate files.
+Processes all top-level <script> and <style> tags without src/href attributes.
 """
 
 import os
@@ -9,13 +9,14 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 
-def extract_inline_scripts(html_file, output_dir='assets/js/lib'):
+def extract_inline_scripts(html_file, js_output_dir='assets/js/lib', css_output_dir='assets/css/lib'):
     """
-    Extract inline scripts from HTML file to separate JS files.
+    Extract inline scripts and styles from HTML file to separate JS and CSS files.
 
     Args:
         html_file: Path to the HTML file to process
-        output_dir: Directory where JS files will be saved
+        js_output_dir: Directory where JS files will be saved
+        css_output_dir: Directory where CSS files will be saved
     """
     # Read the HTML file
     print(f"Reading {html_file}...")
@@ -46,76 +47,139 @@ def extract_inline_scripts(html_file, output_dir='assets/js/lib'):
 
     print(f"Found {len(inline_scripts)} inline script tags (without src attribute)")
 
-    if not inline_scripts:
-        print("No inline scripts to extract.")
-        return
+    # Find all style tags at the top level
+    top_level_styles = []
+    if soup.head:
+        top_level_styles.extend(soup.head.find_all('style', recursive=False))
+    if soup.body:
+        top_level_styles.extend(soup.body.find_all('style', recursive=False))
 
-    # Create output directory
-    output_path = Path(output_dir)
-    output_path.mkdir(parents=True, exist_ok=True)
-    print(f"Created directory: {output_path}")
+    print(f"Found {len(top_level_styles)} top-level style tags")
 
-    # Extract each inline script
-    extracted_files = []
-    i = 1
-    for script in inline_scripts:
-        script_content = script.string or ''
+    all_extracted_files = []
+    html_modified = False
 
-        # Skip empty scripts
-        if not script_content.strip():
-            print(f"  Skipping empty script #{i}")
-            continue
+    # Process inline scripts
+    if inline_scripts:
+        # Create output directory
+        js_output_path = Path(js_output_dir)
+        js_output_path.mkdir(parents=True, exist_ok=True)
+        print(f"\nCreated directory: {js_output_path}")
 
-        # Generate filename
-        filename = f"script_{i}.js"
-        file_path = output_path / filename
-        relative_path = f"{output_dir}/{filename}"
+        # Extract each inline script
+        print("\nProcessing inline scripts...")
+        i = 1
+        for script in inline_scripts:
+            # Get all text content from the script tag
+            script_content = script.get_text()
 
-        # Check if file already exists (allows script to be resumed)
-        while file_path.exists():
-            print(f"  Skipping script #{i} -> {file_path} (already exists)")
-            i += 1
+            # Skip empty scripts
+            if not script_content.strip():
+                print(f"  Skipping empty script #{i}")
+                continue
+
+            # Generate filename
             filename = f"script_{i}.js"
-            file_path = output_path / filename
-            relative_path = f"{output_dir}/{filename}"
+            file_path = js_output_path / filename
+            relative_path = f"{js_output_dir}/{filename}"
 
-        # Write the script content to file
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.write(script_content)
+            # Check if file already exists (allows script to be resumed)
+            while file_path.exists():
+                print(f"  Skipping script #{i} -> {file_path} (already exists)")
+                i += 1
+                filename = f"script_{i}.js"
+                file_path = js_output_path / filename
+                relative_path = f"{js_output_dir}/{filename}"
 
-        print(f"  Extracted script #{i} -> {file_path} ({len(script_content)} bytes)")
-        extracted_files.append(str(file_path))
+            # Write the script content to file
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(script_content)
 
-        # Replace inline script with src reference
-        script.string = ''  # Clear the inline content
-        script['src'] = relative_path  # Add src attribute
-        print(f"  Updated HTML tag to reference {relative_path}")
+            print(f"  Extracted script #{i} -> {file_path} ({len(script_content)} bytes)")
+            all_extracted_files.append(str(file_path))
 
-        i += 1
+            # Replace inline script with src reference
+            script.clear()  # Clear all inline content
+            script['src'] = relative_path  # Add src attribute
+            print(f"  Updated HTML tag to reference {relative_path}")
+
+            html_modified = True
+            i += 1
+
+    # Process inline styles
+    if top_level_styles:
+        # Create output directory
+        css_output_path = Path(css_output_dir)
+        css_output_path.mkdir(parents=True, exist_ok=True)
+        print(f"\nCreated directory: {css_output_path}")
+
+        # Extract each inline style
+        print("\nProcessing inline styles...")
+        i = 1
+        for style in top_level_styles:
+            # Get all text content from the style tag
+            style_content = style.get_text()
+
+            # Skip empty styles
+            if not style_content.strip():
+                print(f"  Skipping empty style #{i}")
+                continue
+
+            # Generate filename
+            filename = f"style_{i}.css"
+            file_path = css_output_path / filename
+            relative_path = f"{css_output_dir}/{filename}"
+
+            # Check if file already exists (allows script to be resumed)
+            while file_path.exists():
+                print(f"  Skipping style #{i} -> {file_path} (already exists)")
+                i += 1
+                filename = f"style_{i}.css"
+                file_path = css_output_path / filename
+                relative_path = f"{css_output_dir}/{filename}"
+
+            # Write the style content to file
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.write(style_content)
+
+            print(f"  Extracted style #{i} -> {file_path} ({len(style_content)} bytes)")
+            all_extracted_files.append(str(file_path))
+
+            # Replace inline style with link reference
+            link = soup.new_tag('link', rel='stylesheet', href=relative_path)
+            style.replace_with(link)
+            print(f"  Replaced style tag with link to {relative_path}")
+
+            html_modified = True
+            i += 1
 
     # Write the modified HTML back to file
-    if extracted_files:
+    if html_modified:
         print(f"\nWriting modified HTML back to {html_file}...")
         with open(html_file, 'w', encoding='utf-8') as f:
             f.write(str(soup))
-        print("HTML file updated with script src references")
+        print("HTML file updated with external references")
 
-    print(f"\nSuccessfully extracted {len(extracted_files)} scripts to {output_dir}/")
-    print("\nExtracted files:")
-    for file in extracted_files:
-        print(f"  - {file}")
+    if all_extracted_files:
+        print(f"\nSuccessfully extracted {len(all_extracted_files)} files")
+        print("\nExtracted files:")
+        for file in all_extracted_files:
+            print(f"  - {file}")
+    else:
+        print("\nNo inline scripts or styles to extract.")
 
 
 if __name__ == '__main__':
     # Configuration
     HTML_FILE = 'wedding_invite.html'
-    OUTPUT_DIR = 'assets/js/lib'
+    JS_OUTPUT_DIR = 'assets/js/lib'
+    CSS_OUTPUT_DIR = 'assets/css/lib'
 
     # Check if HTML file exists
     if not os.path.exists(HTML_FILE):
         print(f"Error: {HTML_FILE} not found in current directory")
         exit(1)
 
-    # Extract scripts
-    extract_inline_scripts(HTML_FILE, OUTPUT_DIR)
+    # Extract scripts and styles
+    extract_inline_scripts(HTML_FILE, JS_OUTPUT_DIR, CSS_OUTPUT_DIR)
     print("\nDone!")
