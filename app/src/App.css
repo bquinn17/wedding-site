@@ -1,0 +1,333 @@
+.app {
+  width: 100%;
+}
+
+/* Navigation */
+.app-header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navigation ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 1.5rem 0;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.navigation a {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-style: normal;
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+  font-weight: 300;
+  transition: all 0.3s ease;
+}
+
+.navigation a:hover {
+  color: #5d4a37;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  margin-top: 15%;
+}
+
+.hero-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 3rem 2rem;
+  border-radius: 2px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  position: relative;
+}
+
+.decorative-images {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.decorative-left,
+.decorative-right {
+  height: 250px;
+  width: auto;
+  object-fit: contain;
+}
+
+.names {
+  font-family: 'Snell Roundhand', 'Great Vibes', cursive;
+  font-style: normal;
+  font-size: 8.625rem;
+  line-height: 1.4em;
+  text-align: center;
+  color: #5e5c5c;
+  margin: 1rem 0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.save-date {
+  font-size: 1rem;
+  text-align: center;
+  color: #666;
+  letter-spacing: 0.3em;
+  margin: 1rem 0;
+}
+
+.heart-icon {
+  display: block;
+  margin: 2rem auto;
+  width: 40px;
+  height: auto;
+}
+
+.invitation {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #666;
+  letter-spacing: 0.15em;
+  margin: 1.5rem 0;
+  font-weight: 300;
+}
+
+.wedding-date {
+  font-size: 2rem;
+  text-align: center;
+  color: #8b7355;
+  letter-spacing: 0.5em;
+  margin: 2rem 0;
+}
+
+.venue-info {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-top: 2rem;
+}
+
+/* Venue Section */
+.venue-section {
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.venue-content {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #8b7355;
+  margin-bottom: 2rem;
+}
+
+.venue-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.venue-logo {
+  width: 200px;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
+}
+
+.selfie-section {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.selfie-image {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Wedding Section */
+.wedding-section {
+  padding: 6rem 2rem;
+  position: relative;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    url('/assets/images/pattern-light.png');
+  background-size: auto, 200px 200px;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+  background-attachment: scroll, fixed;
+  border-bottom: 80px solid rgb(234, 231, 229);
+}
+
+.wedding-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.wedding-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.detail-group {
+  text-align: center;
+}
+
+.detail-label {
+  font-size: 2.65rem;
+  font-weight: 600;
+  color: #8b7355;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.detail-text {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.detail-text a {
+  text-decoration: underline;
+}
+
+/* Getting There Section */
+.getting-there-section {
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.getting-there-content {
+  text-align: center;
+}
+
+.subsection-title {
+  font-family: 'Snell Roundhand', 'Great Vibes', cursive;
+  font-style: normal;
+  font-size: 2.625rem;
+  line-height: 1.4em;
+  color: #5e5c5c;
+  margin: 3rem 0 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.info-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.info-text a {
+  text-decoration: underline;
+}
+
+/* RSVP Section */
+.rsvp-section {
+  padding: 6rem 2rem 10rem;
+  background: linear-gradient(rgba(139, 115, 85, 0.05), rgba(139, 115, 85, 0.1));
+  text-align: center;
+}
+
+.rsvp-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navigation ul {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .navigation a {
+    font-size: 0.8rem;
+  }
+
+  .names {
+    font-size: 2.5rem;
+  }
+
+  .decorative-left,
+  .decorative-right {
+    height: 150px;
+  }
+
+  .hero-box {
+    padding: 2rem 1rem;
+  }
+
+  .wedding-date {
+    font-size: 1.5rem;
+    letter-spacing: 0.3em;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .detail-label {
+    font-size: 1.2rem;
+  }
+
+  .subsection-title {
+    font-size: 2rem;
+  }
+}

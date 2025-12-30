@@ -1,0 +1,16 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+
+// Import fonts
+import '@fontsource/great-vibes/400.css'
+import '@fontsource/playfair-display/400-italic.css'
+import '@fontsource/montserrat/300.css'
+
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
