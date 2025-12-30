@@ -157,8 +157,8 @@ def extract_inline_scripts(html_file, js_output_dir='assets/js/lib', css_output_
 if __name__ == '__main__':
     # Configuration
     HTML_FILE = 'wedding_invite.html'
-    JS_OUTPUT_DIR = '../assets/js/lib'
-    CSS_OUTPUT_DIR = '../assets/css/lib'
+    JS_OUTPUT_DIR = '../old_app/assets/js/lib'
+    CSS_OUTPUT_DIR = '../old_app/assets/css/lib'
 
     # Check if HTML file exists
     if not os.path.exists(HTML_FILE):
