@@ -22,7 +22,7 @@
 }
 
 .navigation a {
-  font-family: 'Avenir Light', 'Montserrat', sans-serif;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
   font-style: normal;
   font-size: 0.875rem;
   letter-spacing: 0.15em;
@@ -267,14 +267,14 @@
   text-decoration: underline;
 }
 
-/* Registry Section */
-.registry-section {
+/* RSVP Section */
+.rsvp-section {
   padding: 6rem 2rem;
   background: linear-gradient(rgba(139, 115, 85, 0.05), rgba(139, 115, 85, 0.1));
   text-align: center;
 }
 
-.registry-content {
+.rsvp-content {
   max-width: 800px;
   margin: 0 auto;
 }

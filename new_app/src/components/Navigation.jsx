@@ -13,7 +13,7 @@ function Navigation() {
         <li><a href="#venue" onClick={(e) => { e.preventDefault(); scrollToSection('venue'); }}>THE VENUE</a></li>
         <li><a href="#wedding" onClick={(e) => { e.preventDefault(); scrollToSection('wedding'); }}>THE WEDDING</a></li>
         <li><a href="#getting-there" onClick={(e) => { e.preventDefault(); scrollToSection('getting-there'); }}>GETTING THERE</a></li>
-        <li><a href="#registry" onClick={(e) => { e.preventDefault(); scrollToSection('registry'); }}>REGISTRY</a></li>
+        <li><a href="#rsvp" onClick={(e) => { e.preventDefault(); scrollToSection('rsvp'); }}>RSVP</a></li>
       </ul>
     </nav>
   );

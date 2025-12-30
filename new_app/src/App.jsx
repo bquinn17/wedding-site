@@ -4,7 +4,7 @@ import HeroSection from './components/HeroSection'
 import VenueSection from './components/VenueSection'
 import WeddingSection from './components/WeddingSection'
 import GettingThereSection from './components/GettingThereSection'
-import RegistrySection from './components/RegistrySection'
+import RsvpSection from './components/RsvpSection'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <VenueSection />
         <WeddingSection />
         <GettingThereSection />
-        <RegistrySection />
+        <RsvpSection />
       </main>
     </div>
   )
