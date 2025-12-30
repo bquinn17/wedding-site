@@ -5,8 +5,11 @@ import VenueSection from './components/VenueSection'
 import WeddingSection from './components/WeddingSection'
 import GettingThereSection from './components/GettingThereSection'
 import RsvpSection from './components/RsvpSection'
+import { useParallax } from './hooks/useParallax'
 
 function App() {
+  useParallax();
+
   return (
     <div className="app">
       <header className="app-header">

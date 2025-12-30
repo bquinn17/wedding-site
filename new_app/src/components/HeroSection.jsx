@@ -7,14 +7,14 @@ function HeroSection() {
 
       <div className="hero-content">
         <div className="hero-box">
-          <div className="decorative-images">
-            <img src="/assets/images/9c608a_9a506a62e136414bbb7c1df06e981721~mv2.png" alt="Decorative left" className="decorative-left" />
-            <img src="/assets/images/9c608a_2355b4068cd14551b705e9c289b12262~mv2.png" alt="Decorative right" className="decorative-right" />
-          </div>
-
-          <h1 className="names">Bryan  &  Leah</h1>
+          {/*<div className="decorative-images">*/}
+          {/*  <img src="/assets/images/9c608a_9a506a62e136414bbb7c1df06e981721~mv2.png" alt="Decorative left" className="decorative-left" />*/}
+          {/*  <img src="/assets/images/9c608a_2355b4068cd14551b705e9c289b12262~mv2.png" alt="Decorative right" className="decorative-right" />*/}
+          {/*</div>*/}
 
           <h2 className="save-date">Save The Date!</h2>
+
+          <h1 className="names">Bryan  &  Leah</h1>
 
           <img src="/assets/images/9c608a_47d2926591aa4e8da5ff30adbc4303a8~mv2.png" alt="Decorative element" className="heart-icon" />
 
