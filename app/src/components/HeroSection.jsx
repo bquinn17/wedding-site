@@ -1,4 +1,29 @@
+import { useState, useEffect } from 'react';
+
 function HeroSection() {
+  const [showArrow, setShowArrow] = useState(false);
+
+  useEffect(() => {
+    // Show arrow after 2 seconds
+    const timer = setTimeout(() => {
+      setShowArrow(true);
+    }, 4000);
+
+    // Hide arrow when user scrolls
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setShowArrow(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <section id="home" className="hero-section">
       <div className="hero-image">
@@ -29,6 +54,14 @@ function HeroSection() {
           </div>
         </div>
       </div>
+
+      {showArrow && (
+        <div className="scroll-arrow">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 20L7 12L8.4 10.6L15 17.2L21.6 10.6L23 12L15 20Z" fill="currentColor"/>
+          </svg>
+        </div>
+      )}
     </section>
   );
 }
