@@ -78,7 +78,7 @@
   z-index: 1;
   margin-top: 15%;
   opacity: 0;
-  animation: heroFadeIn 2s ease-out forwards;
+  animation: heroFadeIn 3s ease-out forwards;
 }
 
 .hero-box {
@@ -272,6 +272,18 @@
   text-decoration: underline;
 }
 
+.map-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.map-container iframe {
+  max-width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
 /* Getting There Section */
 .getting-there-section {
   padding: 6rem 2rem;
@@ -371,5 +383,18 @@
 
   .subsection-title {
     font-size: 2rem;
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding-bottom: 0.5rem;
+  }
+
+  .hero-content {
+    margin-top: 2%;
+  }
+
+  .wedding-section {
+    padding-top: 2rem;
   }
 }
