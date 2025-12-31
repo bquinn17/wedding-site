@@ -388,10 +388,7 @@
   .hero-section {
     min-height: auto;
     padding-bottom: 0.5rem;
-  }
-
-  .hero-content {
-    margin-top: 2%;
+    padding-top: 4rem;
   }
 
   .wedding-section {
