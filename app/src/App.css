@@ -265,6 +265,11 @@
   position: relative;
 }
 
+/* Fallback for iOS and mobile devices where fixed attachment doesn't work */
+.snow-farm-parallax.mobile-fallback {
+  background-attachment: scroll;
+}
+
 .wedding-content {
   max-width: 800px;
   margin: 0 auto;
