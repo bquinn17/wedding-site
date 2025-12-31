@@ -6,9 +6,11 @@ import WeddingSection from './components/WeddingSection'
 import GettingThereSection from './components/GettingThereSection'
 import RsvpSection from './components/RsvpSection'
 import { useParallax } from './hooks/useParallax'
+import { useScrollAnimation } from './hooks/useScrollAnimation'
 
 function App() {
   useParallax();
+  useScrollAnimation();
 
   return (
     <div className="app">

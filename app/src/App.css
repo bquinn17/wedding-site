@@ -64,10 +64,21 @@
   will-change: transform;
 }
 
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .hero-content {
   position: relative;
   z-index: 1;
   margin-top: 15%;
+  opacity: 0;
+  animation: heroFadeIn 2s ease-out forwards;
 }
 
 .hero-box {
@@ -289,8 +300,21 @@
   margin: 0 auto;
 }
 
+/* Scroll Animation Setup - GSAP will handle the animations */
+.fade-in,
+.fade-in-left,
+.fade-in-right,
+.fade-in-up,
+.zoom-in {
+  opacity: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .app-header {
+    display: none;
+  }
+
   .navigation ul {
     gap: 1rem;
     padding: 1rem;
