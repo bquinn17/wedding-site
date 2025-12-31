@@ -2,7 +2,39 @@
   "hash": "3d5b4224",
   "configHash": "da65c3e7",
   "lockfileHash": "f1619abd",
-  "browserHash": "d9f31968",
-  "optimized": {},
-  "chunks": {}
+  "browserHash": "3384b600",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "aaa73fb9",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "562063eb",
+      "needsInterop": true
+    },
+    "gsap": {
+      "src": "../../node_modules/gsap/index.js",
+      "file": "gsap.js",
+      "fileHash": "5c525d41",
+      "needsInterop": false
+    },
+    "gsap/ScrollTrigger": {
+      "src": "../../node_modules/gsap/ScrollTrigger.js",
+      "file": "gsap_ScrollTrigger.js",
+      "fileHash": "9b1b237f",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-62IMSUQ4": {
+      "file": "chunk-62IMSUQ4.js"
+    },
+    "chunk-BUSYA2B4": {
+      "file": "chunk-BUSYA2B4.js"
+    }
+  }
 }

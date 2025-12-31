@@ -3,6 +3,7 @@ import Navigation from './components/Navigation'
 import HeroSection from './components/HeroSection'
 import VenueSection from './components/VenueSection'
 import WeddingSection from './components/WeddingSection'
+import SnowFarmParallax from './components/SnowFarmParallax'
 import GettingThereSection from './components/GettingThereSection'
 import RsvpSection from './components/RsvpSection'
 import { useParallax } from './hooks/useParallax'
@@ -21,6 +22,7 @@ function App() {
         <HeroSection />
         <VenueSection />
         <WeddingSection />
+        <SnowFarmParallax />
         <GettingThereSection />
         <RsvpSection />
       </main>

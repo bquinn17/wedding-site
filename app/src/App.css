@@ -192,16 +192,24 @@
 
 .selfie-section {
   margin-top: 4rem;
+  padding: 4rem 2rem;
+  background: rgb(234, 231, 229);
   display: flex;
   justify-content: center;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .selfie-image {
   width: 100%;
-  max-width: 900px;
+  max-width: 700px;
   height: auto;
-  border-radius: 2px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 20px solid white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* Wedding Section */
@@ -215,7 +223,17 @@
   background-position: center, center;
   background-repeat: no-repeat, repeat;
   background-attachment: scroll, fixed;
-  border-bottom: 80px solid rgb(234, 231, 229);
+}
+
+/* Snow Farm Parallax Section */
+.snow-farm-parallax {
+  height: 400px;
+  background-image: url('/assets/images/snow_farm.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .wedding-content {

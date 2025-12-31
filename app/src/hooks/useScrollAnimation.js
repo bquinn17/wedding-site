@@ -6,9 +6,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const useScrollAnimation = () => {
   useEffect(() => {
-    // Fade in animations
-    gsap.utils.toArray('.fade-in').forEach((element) => {
-      gsap.fromTo(element,
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      // Fade in animations
+      gsap.utils.toArray('.fade-in').forEach((element) => {
+        gsap.fromTo(element,
         {
           opacity: 0,
           y: 50,
@@ -114,9 +116,14 @@ export const useScrollAnimation = () => {
           },
         }
       );
-    });
+      });
+
+      // Refresh ScrollTrigger after all animations are set up
+      ScrollTrigger.refresh();
+    }, 100);
 
     return () => {
+      clearTimeout(timer);
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
