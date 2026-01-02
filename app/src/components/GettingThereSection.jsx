@@ -7,7 +7,7 @@ function GettingThereSection() {
         <h3 className="subsection-title fade-in-left">Transportation</h3>
         <p className="info-text fade-in-up">
           For those who are flying to Vermont, there are major airports in Burlington, VT and
-          nearby in Plattsburg, NY
+          nearby in Plattsburgh, NY
         </p>
 
         <h3 className="subsection-title fade-in-right">Accommodation</h3>

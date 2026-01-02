@@ -7,7 +7,7 @@ function WeddingSection() {
         <div className="wedding-details">
           <div className="detail-group fade-in-up">
             <h3 className="detail-label">When</h3>
-            <p className="detail-text">Sep 19th, 2026, 4:30 PM</p>
+            <p className="detail-text">September 19th, 2026, 4:30 PM</p>
           </div>
 
           <div className="detail-group fade-in-up">
