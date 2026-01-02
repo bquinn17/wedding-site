@@ -352,6 +352,38 @@
   text-decoration: underline;
 }
 
+.booking-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.booking-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #8b7355;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(139, 115, 85, 0.3);
+}
+
+.booking-button:hover {
+  background: #6d5a43;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 115, 85, 0.4);
+}
+
+.booking-button svg {
+  flex-shrink: 0;
+}
+
 /* RSVP Section */
 .rsvp-section {
   padding: 6rem 2rem 10rem;

@@ -16,16 +16,23 @@ function GettingThereSection() {
           <a href="https://maps.app.goo.gl/zRAyCyxL5dzZguwk8" target="_blank" rel="noopener noreferrer">
             Hampton Inn & Suites in Colchester, VT
           </a>
-          . You can use this link to book a room with our block discount:{' '}
+          . You can use this link to book a room with our block discount:
+        </p>
+        <div className="booking-button-container fade-in-up">
           <a
             href="https://www.hilton.com/en/book/reservation/deeplink/?ctyhocn=BTVMVHX&groupCode=CHH90N&arrivaldate=2026-09-18&departuredate=2026-09-20&cid=OM,WW,HILTONLINK,EN,DirectLink&fromId=HILTONLINKDIRECT"
             target="_blank"
             rel="noopener noreferrer"
+            className="booking-button"
           >
-            LINK
+            Book Your Room
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M15 3h6v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M10 14L21 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </a>
-          .
-        </p>
+        </div>
       </div>
     </section>
   );
