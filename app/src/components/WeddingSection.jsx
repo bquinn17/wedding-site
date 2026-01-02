@@ -7,7 +7,7 @@ function WeddingSection() {
         <div className="wedding-details">
           <div className="detail-group fade-in-up">
             <h3 className="detail-label">When</h3>
-            <p className="detail-text">September 19th, 2026, 4:30 PM</p>
+            <p className="detail-text">Saturday, September 19th, 2026, 4:30 PM</p>
           </div>
 
           <div className="detail-group fade-in-up">
@@ -35,6 +35,14 @@ function WeddingSection() {
 
         <img src="/assets/images/9c608a_47d2926591aa4e8da5ff30adbc4303a8~mv2.png" alt="Decorative element"
              className="heart-icon zoom-in"/>
+
+        <div className="welcome-party-note fade-in-up">
+          <h3 className="subsection-title">Welcome Party</h3>
+          <p className="info-text">
+            Join us for an informal welcome party the evening before the wedding, Friday, September 18th in the
+            Burlington, VT area. Details to follow.
+          </p>
+        </div>
       </div>
     </section>
   );
