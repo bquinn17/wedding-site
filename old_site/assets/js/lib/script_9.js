@@ -1,5 +1,0 @@
-
-    window.commonConfig = viewerModel.commonConfig
-
-
-  
