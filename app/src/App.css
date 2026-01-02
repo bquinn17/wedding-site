@@ -272,9 +272,11 @@
   position: relative;
 }
 
-/* Fallback for iOS and mobile devices where fixed attachment doesn't work */
-.snow-farm-parallax.mobile-fallback {
-  background-attachment: scroll;
+/* Fallback for iOS devices using CSS feature detection */
+@supports (-webkit-touch-callout: inherit) {
+  .snow-farm-parallax {
+    background-attachment: scroll;
+  }
 }
 
 .wedding-content {
