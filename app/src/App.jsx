@@ -6,6 +6,7 @@ import SelfieSection from './components/SelfieSection'
 import WeddingSection from './components/WeddingSection'
 import SnowFarmParallax from './components/SnowFarmParallax'
 import GettingThereSection from './components/GettingThereSection'
+import AtAGlanceSection from './components/AtAGlanceSection'
 import RsvpSection from './components/RsvpSection'
 import RegistrySection from './components/RegistrySection'
 import { useParallax } from './hooks/useParallax'
@@ -25,6 +26,7 @@ function App() {
         <WeddingSection />
         <SnowFarmParallax />
         <GettingThereSection />
+        <AtAGlanceSection />
         <SelfieSection />
         <RsvpSection />
         <RegistrySection />

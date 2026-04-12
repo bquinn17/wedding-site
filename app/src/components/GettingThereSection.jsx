@@ -1,5 +1,3 @@
-import LocationsMap from './LocationsMap';
-
 function GettingThereSection() {
   return (
     <section id="getting-there" className="getting-there-section">
@@ -35,8 +33,6 @@ function GettingThereSection() {
             </svg>
           </a>
         </div>
-
-        <LocationsMap />
 
       </div>
     </section>
