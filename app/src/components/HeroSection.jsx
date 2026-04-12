@@ -37,7 +37,7 @@ function HeroSection() {
           {/*  <img src="/assets/images/9c608a_2355b4068cd14551b705e9c289b12262~mv2.png" alt="Decorative right" className="decorative-right" />*/}
           {/*</div>*/}
 
-          <h2 className="save-date">Save The Date!</h2>
+          <h2 className="save-date">You're Invited!</h2>
 
           <h1 className="names">Bryan  &  Leah</h1>
 

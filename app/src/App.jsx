@@ -7,6 +7,7 @@ import WeddingSection from './components/WeddingSection'
 import SnowFarmParallax from './components/SnowFarmParallax'
 import GettingThereSection from './components/GettingThereSection'
 import RsvpSection from './components/RsvpSection'
+import RegistrySection from './components/RegistrySection'
 import { useParallax } from './hooks/useParallax'
 import { useScrollAnimation } from './hooks/useScrollAnimation'
 
@@ -26,6 +27,7 @@ function App() {
         <GettingThereSection />
         <SelfieSection />
         <RsvpSection />
+        <RegistrySection />
         <VenueSection />
       </main>
     </div>

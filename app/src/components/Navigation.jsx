@@ -14,6 +14,7 @@ function Navigation() {
         <li><a href="#wedding" onClick={(e) => { e.preventDefault(); scrollToSection('wedding'); }}>The Wedding</a></li>
         <li><a href="#getting-there" onClick={(e) => { e.preventDefault(); scrollToSection('getting-there'); }}>Getting There</a></li>
         <li><a href="#rsvp" onClick={(e) => { e.preventDefault(); scrollToSection('rsvp'); }}>RSVP</a></li>
+        <li><a href="#registry" onClick={(e) => { e.preventDefault(); scrollToSection('registry'); }}>Registry</a></li>
       </ul>
     </nav>
   );
