@@ -2,7 +2,7 @@ function VenueSection() {
   return (
     <section id="venue" className="venue-section">
       <div className="venue-content">
-        <h2 className="section-title fade-in">The Venue</h2>
+        <h2 className="section-title fade-in">About The Venue</h2>
 
         <p className="venue-description fade-in-left">
           Northern Vermont has been an especially meaningful place for us over the course of our
@@ -20,10 +20,6 @@ function VenueSection() {
 
         <img src="/assets/images/9c608a_4f46c80b727741b0ab89c97f4a108f02~mv2.png" alt="Snow Farm Logo"
              className="venue-logo zoom-in"/>
-      </div>
-
-      <div className="selfie-section">
-        <img src="/assets/images/selfie.jpg" alt="Bryan and Leah" className="selfie-image fade-in-up"/>
       </div>
     </section>
   );

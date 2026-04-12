@@ -2,6 +2,7 @@ import './App.css'
 import Navigation from './components/Navigation'
 import HeroSection from './components/HeroSection'
 import VenueSection from './components/VenueSection'
+import SelfieSection from './components/SelfieSection'
 import WeddingSection from './components/WeddingSection'
 import SnowFarmParallax from './components/SnowFarmParallax'
 import GettingThereSection from './components/GettingThereSection'
@@ -20,11 +21,12 @@ function App() {
       </header>
       <main className="app-main">
         <HeroSection />
-        <VenueSection />
         <WeddingSection />
         <SnowFarmParallax />
         <GettingThereSection />
+        <SelfieSection />
         <RsvpSection />
+        <VenueSection />
       </main>
     </div>
   )
