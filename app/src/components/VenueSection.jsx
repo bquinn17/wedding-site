@@ -2,6 +2,9 @@ function VenueSection() {
   return (
     <section id="venue" className="venue-section">
       <div className="venue-content">
+        <img src="/assets/images/9c608a_4f46c80b727741b0ab89c97f4a108f02~mv2.png" alt="Snow Farm Logo"
+             className="venue-logo zoom-in"/>
+        
         <h2 className="section-title fade-in">About The Venue</h2>
 
         <p className="venue-description fade-in-left">
@@ -17,9 +20,6 @@ function VenueSection() {
           and Lake Champlain, as well as world class wine and spirits. We hope you'll love it as
           much as we do.
         </p>
-
-        <img src="/assets/images/9c608a_4f46c80b727741b0ab89c97f4a108f02~mv2.png" alt="Snow Farm Logo"
-             className="venue-logo zoom-in"/>
       </div>
     </section>
   );

@@ -10,12 +10,10 @@ function Navigation() {
     <nav className="navigation">
       <ul>
         <li><a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>Home</a></li>
-        <li><a href="#venue" onClick={(e) => { e.preventDefault(); scrollToSection('venue'); }}>The Venue</a></li>
-        <li><a href="#wedding" onClick={(e) => { e.preventDefault(); scrollToSection('wedding'); }}>The Wedding</a></li>
-        <li><a href="#getting-there" onClick={(e) => { e.preventDefault(); scrollToSection('getting-there'); }}>Getting There</a></li>
         <li><a href="#at-a-glance" onClick={(e) => { e.preventDefault(); scrollToSection('at-a-glance'); }}>At a Glance</a></li>
         <li><a href="#rsvp" onClick={(e) => { e.preventDefault(); scrollToSection('rsvp'); }}>RSVP</a></li>
         <li><a href="#registry" onClick={(e) => { e.preventDefault(); scrollToSection('registry'); }}>Registry</a></li>
+        <li><a href="#venue" onClick={(e) => { e.preventDefault(); scrollToSection('venue'); }}>The Venue</a></li>
       </ul>
     </nav>
   );

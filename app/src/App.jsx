@@ -3,9 +3,7 @@ import Navigation from './components/Navigation'
 import HeroSection from './components/HeroSection'
 import VenueSection from './components/VenueSection'
 import SelfieSection from './components/SelfieSection'
-import WeddingSection from './components/WeddingSection'
 import SnowFarmParallax from './components/SnowFarmParallax'
-import GettingThereSection from './components/GettingThereSection'
 import AtAGlanceSection from './components/AtAGlanceSection'
 import RsvpSection from './components/RsvpSection'
 import RegistrySection from './components/RegistrySection'
@@ -23,13 +21,11 @@ function App() {
       </header>
       <main className="app-main">
         <HeroSection />
-        <WeddingSection />
-        <SnowFarmParallax />
-        <GettingThereSection />
         <AtAGlanceSection />
+        <SnowFarmParallax />
+        <RegistrySection />
         <SelfieSection />
         <RsvpSection />
-        <RegistrySection />
         <VenueSection />
       </main>
     </div>
