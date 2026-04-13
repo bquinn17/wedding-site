@@ -187,7 +187,7 @@
 
 /* Venue Section */
 .venue-section {
-  padding: 6rem 2rem;
+  padding: 6rem 2rem 50vh;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -245,13 +245,7 @@
 .wedding-section {
   padding: 6rem 2rem;
   position: relative;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-    url('/assets/images/pattern-light.png');
-  background-size: auto, 200px 200px;
-  background-position: center, center;
-  background-repeat: no-repeat, repeat;
-  background-attachment: scroll, fixed;
+  background: linear-gradient(rgba(139, 115, 85, 0.05), rgba(139, 115, 85, 0.1));
 }
 
 .welcome-party-note {
@@ -327,6 +321,370 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Locations Map (multi-marker) */
+.locations-map-wrapper {
+  margin: 5rem auto 0;
+  max-width: 900px;
+}
+
+.locations-map {
+  width: 100%;
+  height: 450px;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+.locations-map .leaflet-control-attribution {
+  font-size: 0.7rem;
+}
+
+.map-pin-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.map-pin {
+  position: relative;
+  width: 40px;
+  height: 52px;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.35));
+}
+
+.map-pin-bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--pin-color, #b5651d);
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-pin-emoji {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.map-pin-tail {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 14px solid var(--pin-color, #b5651d);
+}
+
+.map-popup {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.map-popup strong {
+  font-size: 1rem;
+  color: #5d4a37;
+}
+
+.map-popup-sub {
+  color: #8a7a63;
+  font-style: italic;
+  margin: 0.15rem 0 0.35rem;
+}
+
+.map-popup-addr {
+  margin-bottom: 0.4rem;
+}
+
+.map-popup a {
+  text-decoration: underline;
+  color: #5d4a37;
+}
+
+@media (max-width: 600px) {
+  .locations-map {
+    height: 360px;
+  }
+}
+
+/* At a Glance Section */
+.at-a-glance-section {
+  padding: 8rem 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.at-a-glance-content {
+  text-align: center;
+}
+
+.at-a-glance-content > .info-text {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+
+.at-a-glance-content .subsection-title {
+  margin-top: 5rem;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem 0 0;
+  position: relative;
+  text-align: left;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 34px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(139, 115, 85, 0.1),
+    rgba(139, 115, 85, 0.45),
+    rgba(139, 115, 85, 0.1)
+  );
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  gap: 2rem;
+  padding: 1.5rem 0 4.5rem 0;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-marker {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--marker-color, #b5651d);
+  border: 3px solid #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-marker-emoji {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.timeline-body {
+  flex: 1;
+  padding-top: 0.5rem;
+  min-width: 0;
+}
+
+.timeline-day {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #8b7355;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #5d4a37;
+  margin: 0 0 0.4rem;
+  line-height: 1.25;
+}
+
+.timeline-time {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.3rem;
+  color: #8b7355;
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+
+.timeline-venue {
+  font-size: 1.05rem;
+  color: #666;
+  margin: 0 0 1.25rem;
+}
+
+.timeline-venue a {
+  text-decoration: underline;
+  color: #5d4a37;
+}
+
+.timeline-description {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: #555;
+  margin: 0 0 1.75rem;
+  max-width: 640px;
+}
+
+.timeline-calendar {
+  margin-top: 1.5rem;
+}
+
+.timeline-calendar .add-to-calendar-label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-calendar .booking-button-container {
+  justify-content: flex-start;
+  margin-top: 0;
+}
+
+.places-list {
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  text-align: left;
+}
+
+.places-item {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.places-marker {
+  flex-shrink: 0;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: var(--marker-color, #5d4a37);
+  border: 3px solid #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.places-marker-emoji {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.places-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.places-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #5d4a37;
+  margin: 0 0 0.4rem;
+}
+
+.places-venue {
+  font-size: 1.05rem;
+  color: #666;
+  margin: 0 0 0.75rem;
+}
+
+.places-venue a {
+  text-decoration: underline;
+  color: #5d4a37;
+}
+
+.places-description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0 0 1.25rem;
+  max-width: 640px;
+}
+
+.places-item .booking-button-container {
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .at-a-glance-section {
+    padding: 5rem 1.25rem;
+  }
+
+  .at-a-glance-content .subsection-title {
+    margin-top: 3.5rem;
+  }
+
+  .timeline::before {
+    left: 26px;
+  }
+
+  .timeline-item {
+    gap: 1.25rem;
+    padding-bottom: 3rem;
+  }
+
+  .timeline-marker {
+    width: 54px;
+    height: 54px;
+  }
+
+  .timeline-marker-emoji {
+    font-size: 26px;
+  }
+
+  .timeline-heading {
+    font-size: 1.5rem;
+  }
+
+  .timeline-time {
+    font-size: 1.1rem;
+  }
+
+  .timeline-description {
+    font-size: 1rem;
+  }
+
+  .places-item {
+    gap: 1.25rem;
+  }
+
+  .places-marker {
+    width: 52px;
+    height: 52px;
+  }
+
+  .places-marker-emoji {
+    font-size: 24px;
+  }
+
+  .places-heading {
+    font-size: 1.25rem;
+  }
+}
+
 /* Getting There Section */
 .getting-there-section {
   padding: 6rem 2rem;
@@ -364,6 +722,8 @@
 .booking-button-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-top: 2rem;
 }
 
@@ -393,14 +753,66 @@
   flex-shrink: 0;
 }
 
+.add-to-calendar {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.add-to-calendar-label {
+  font-family: 'Didot', 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #8b7355;
+  margin: 0 0 0.75rem;
+}
+
+.add-to-calendar .booking-button-container {
+  margin-top: 0;
+  gap: 0.75rem;
+}
+
+.add-to-calendar .booking-button,
+.booking-button-small {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 3px 10px rgba(139, 115, 85, 0.25);
+}
+
+.calendar-buttons {
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 /* RSVP Section */
 .rsvp-section {
-  padding: 6rem 2rem 10rem;
+  padding: 6rem 2rem;
   background: linear-gradient(rgba(139, 115, 85, 0.05), rgba(139, 115, 85, 0.1));
   text-align: center;
 }
 
 .rsvp-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Registry Section */
+.registry-section {
+  padding: 6rem 2rem 10rem;
+  position: relative;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    url('/assets/images/pattern-light.png');
+  background-size: auto, 200px 200px;
+  background-position: center, center;
+  background-repeat: no-repeat, repeat;
+  background-attachment: scroll, fixed;
+  text-align: center;
+}
+
+.registry-content {
   max-width: 800px;
   margin: 0 auto;
 }

@@ -2,10 +2,11 @@ import './App.css'
 import Navigation from './components/Navigation'
 import HeroSection from './components/HeroSection'
 import VenueSection from './components/VenueSection'
-import WeddingSection from './components/WeddingSection'
+import SelfieSection from './components/SelfieSection'
 import SnowFarmParallax from './components/SnowFarmParallax'
-import GettingThereSection from './components/GettingThereSection'
+import AtAGlanceSection from './components/AtAGlanceSection'
 import RsvpSection from './components/RsvpSection'
+import RegistrySection from './components/RegistrySection'
 import { useParallax } from './hooks/useParallax'
 import { useScrollAnimation } from './hooks/useScrollAnimation'
 
@@ -20,11 +21,12 @@ function App() {
       </header>
       <main className="app-main">
         <HeroSection />
-        <VenueSection />
-        <WeddingSection />
+        <AtAGlanceSection />
         <SnowFarmParallax />
-        <GettingThereSection />
+        <RegistrySection />
+        <SelfieSection />
         <RsvpSection />
+        <VenueSection />
       </main>
     </div>
   )

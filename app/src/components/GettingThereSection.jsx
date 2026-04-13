@@ -10,13 +10,13 @@ function GettingThereSection() {
           nearby in Plattsburgh, NY
         </p>
 
-        <h3 className="subsection-title fade-in-right">Accommodation</h3>
+        <h3 className="subsection-title fade-in-right">Accommodations</h3>
         <p className="info-text fade-in-up">
           We have secured a block of king and double rooms at the{' '}
           <a href="https://maps.app.goo.gl/zRAyCyxL5dzZguwk8" target="_blank" rel="noopener noreferrer">
             Hampton Inn & Suites in Colchester, VT
           </a>
-          . You can use this link to book a room with our block discount:
+          . You can use this link to book a room with our block discount by August 1st:
         </p>
         <div className="booking-button-container fade-in-up">
           <a
@@ -33,6 +33,7 @@ function GettingThereSection() {
             </svg>
           </a>
         </div>
+
       </div>
     </section>
   );
