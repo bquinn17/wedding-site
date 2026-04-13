@@ -1,6 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+
+const getIsTouch = () =>
+  typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 
 export const WEDDING_LOCATION = {
   id: 'wedding',
@@ -73,7 +76,10 @@ function makeIcon({ emoji, color }) {
 
 function LocationsMap() {
   const containerRef = useRef(null);
+  const wrapperRef = useRef(null);
   const mapRef = useRef(null);
+  const [isTouch] = useState(getIsTouch);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
@@ -81,6 +87,7 @@ function LocationsMap() {
     const map = L.map(containerRef.current, {
       scrollWheelZoom: false,
       zoomControl: true,
+      dragging: !isTouch,
     });
     mapRef.current = map;
 
@@ -110,11 +117,42 @@ function LocationsMap() {
       map.remove();
       mapRef.current = null;
     };
-  }, []);
+  }, [isTouch]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !isTouch) return;
+    if (active) {
+      map.dragging.enable();
+    } else {
+      map.dragging.disable();
+    }
+  }, [active, isTouch]);
+
+  useEffect(() => {
+    if (!active) return;
+    const handlePointerDown = (e) => {
+      if (!wrapperRef.current?.contains(e.target)) {
+        setActive(false);
+      }
+    };
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => document.removeEventListener('pointerdown', handlePointerDown);
+  }, [active]);
 
   return (
-    <div className="locations-map-wrapper fade-in-up">
+    <div ref={wrapperRef} className="locations-map-wrapper fade-in-up">
       <div ref={containerRef} className="locations-map" />
+      {isTouch && !active && (
+        <button
+          type="button"
+          className="locations-map-overlay"
+          onClick={() => setActive(true)}
+          aria-label="Activate map interaction"
+        >
+          <span>Tap to interact with map</span>
+        </button>
+      )}
     </div>
   );
 }
