@@ -23,11 +23,12 @@
 }
 
 .navigation a {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-style: normal;
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
-  font-weight: 300;
+  font-family: 'Didot', 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  color: #5e5c5c;
   transition: all 0.3s ease;
 }
 
@@ -187,7 +188,7 @@
 
 /* Venue Section */
 .venue-section {
-  padding: 6rem 2rem 50vh;
+  padding: 6rem 2rem 30vh;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -241,20 +242,6 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Wedding Section */
-.wedding-section {
-  padding: 6rem 2rem;
-  position: relative;
-  background: linear-gradient(rgba(139, 115, 85, 0.05), rgba(139, 115, 85, 0.1));
-}
-
-.welcome-party-note {
-  margin-top: 4rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* Snow Farm Parallax Section */
 .snow-farm-parallax {
   height: 400px;
@@ -271,54 +258,6 @@
   .snow-farm-parallax {
     background-attachment: scroll;
   }
-}
-
-.wedding-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.wedding-details {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  margin: 3rem 0;
-}
-
-.detail-group {
-  text-align: center;
-}
-
-.detail-label {
-  font-size: 2.65rem;
-  font-weight: 600;
-  color: #8b7355;
-  margin-bottom: 1rem;
-  letter-spacing: 0.1em;
-}
-
-.detail-text {
-  font-size: 1.15rem;
-  color: #555;
-  line-height: 1.6;
-  margin: 0.5rem 0;
-}
-
-.detail-text a {
-  text-decoration: underline;
-}
-
-.map-container {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-}
-
-.map-container iframe {
-  max-width: 100%;
-  border-radius: 4px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Locations Map (multi-marker) */
@@ -685,17 +624,6 @@
   }
 }
 
-/* Getting There Section */
-.getting-there-section {
-  padding: 6rem 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.getting-there-content {
-  text-align: center;
-}
-
 .subsection-title {
   font-family: 'Snell Roundhand', 'Great Vibes', cursive;
   font-style: normal;
@@ -753,11 +681,6 @@
   flex-shrink: 0;
 }
 
-.add-to-calendar {
-  margin-top: 2rem;
-  text-align: center;
-}
-
 .add-to-calendar-label {
   font-family: 'Didot', 'Playfair Display', Georgia, serif;
   font-style: italic;
@@ -768,12 +691,6 @@
   margin: 0 0 0.75rem;
 }
 
-.add-to-calendar .booking-button-container {
-  margin-top: 0;
-  gap: 0.75rem;
-}
-
-.add-to-calendar .booking-button,
 .booking-button-small {
   padding: 0.55rem 1.1rem;
   font-size: 0.85rem;
@@ -864,10 +781,6 @@
     letter-spacing: 0.1em;
   }
 
-  .detail-label {
-    font-size: 1.2rem;
-  }
-
   .subsection-title {
     font-size: 2rem;
   }
@@ -878,7 +791,4 @@
     padding-top: 4rem;
   }
 
-  .wedding-section {
-    padding-top: 2rem;
-  }
 }
